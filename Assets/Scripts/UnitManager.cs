@@ -3,8 +3,8 @@ using UnityEngine;
 public class UnitManager : MonoBehaviour
 {
     // status
-    int hitPoint;
-    int attackPower;
+    public int hitPoint;
+    public int attackPower;
 
     // attack function
     public void Attack(UnitManager target)
