@@ -4,7 +4,9 @@ public class BattleManager : MonoBehaviour
 {
     public UnitManager player;
     public UnitManager enemy;
-    void Start()
+    void Start() {}
+
+    public void OnAttackButton()
     {
         player.Attack(enemy);
         enemy.Attack(player);
