@@ -7,7 +7,7 @@ public class UnitManager : MonoBehaviour
     int attackPower;
 
     // attack function
-    void Attack(UnitManager target)
+    public void Attack(UnitManager target)
     {
         target.OnGotDamage(attackPower);
     }
