@@ -17,5 +17,11 @@ public class UnitManager : MonoBehaviour
     {
         hitPoint -= damage;
         Debug.Log($"{name} got {damage} damages");
+
+        if (hitPoint <= 0)
+        {
+            hitPoint = 0;
+            Debug.Log($"{name} was fainted !");
+        }
     }
 }
