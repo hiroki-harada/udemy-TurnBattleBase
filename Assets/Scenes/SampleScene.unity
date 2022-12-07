@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 310}
   m_SizeDelta: {x: 245.7913, y: 65.7463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &170070
@@ -367,7 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 654674313}
-  enemy: {fileID: 562379634}
+  playerUI: {fileID: 1878257562}
+  enemyUI: {fileID: 816000454}
 --- !u!4 &154435113
 Transform:
   m_ObjectHideFlags: 0
@@ -620,7 +621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -357, y: -532}
+  m_AnchoredPosition: {x: -357, y: -520}
   m_SizeDelta: {x: 245.7913, y: 65.7463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449942646
@@ -846,53 +847,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560169733}
   m_CullTransparentMesh: 1
---- !u!1 &562379633
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 562379635}
-  - component: {fileID: 562379634}
-  m_Layer: 0
-  m_Name: EnemyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &562379634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562379633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9df906831fa0584f9bf3c0b70ae0176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  hitPoint: 20
-  attackPower: 5
---- !u!4 &562379635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562379633}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 614.4692, y: 920.7701, z: 1.918349}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654674312
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,8 +876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5846034323e0d9f42b8d2e045f2a9d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 100
-  attackPower: 10
+  hitPoint: 50
+  attackPower: 15
 --- !u!4 &654674314
 Transform:
   m_ObjectHideFlags: 0
@@ -1182,6 +1136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageUI: {fileID: 1376193482}
   enemyPrefab: {fileID: 4941096291702756177, guid: 78ae196c0fb018b44bb7ed372ad32b27, type: 3}
+  battleManager: {fileID: 154435112}
 --- !u!1 &1376193477
 GameObject:
   m_ObjectHideFlags: 0

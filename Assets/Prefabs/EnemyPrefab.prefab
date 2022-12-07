@@ -154,3 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9df906831fa0584f9bf3c0b70ae0176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Fire Goat
+  hitPoint: 50
+  attackPower: 10

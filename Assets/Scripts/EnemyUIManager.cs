@@ -8,8 +8,14 @@ public class EnemyUIManager : MonoBehaviour
     public Text hpText;
     public Text nameText;
 
-    public void UpdateUI()
+    public void SetupUI(EnemyManager enemy)
     {
-        hpText.text = $"HP : {hpText}";
+        hpText.text = $"HP : {enemy.hitPoint}";
+        nameText.text = $"{enemy.name}";
+    }
+
+    public void UpdateUI(EnemyManager enemy)
+    {
+        hpText.text = $"HP : {enemy.hitPoint}";
     }
 }
