@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    Action onClickAction;
+
     public new string name;
     public int hitPoint;
     public int attackPower;
@@ -19,9 +20,15 @@ public class EnemyManager : MonoBehaviour
         Debug.Log($"Enemy's HP was {hitPoint}");
     }
 
+    public void AddEventListenerOnClick(Action action)
+    {
+        onClickAction += action;
+    }
+
     public void OnClick()
     {
         Debug.Log("Enemy was Clicked");
+        onClickAction();
     }
 
 }

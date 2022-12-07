@@ -5,6 +5,7 @@ public class QuestManager : MonoBehaviour
 
     public StageUIManager stageUI;
     public GameObject enemyPrefab;
+    public BattleManager battleManager;
 
     int[] encountEnemyTable = { -1, -1, -1, 0, -1, 0, -1,};
 
@@ -25,6 +26,7 @@ public class QuestManager : MonoBehaviour
     void EncountEnemy()
     {
         stageUI.SwitchButtonActivate();
-        Instantiate(enemyPrefab);
+        GameObject enemyObj = Instantiate(enemyPrefab);
+        battleManager.Setup(enemyObj.GetComponent<EnemyManager>());
     }
 }
