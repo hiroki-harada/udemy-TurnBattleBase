@@ -8,6 +8,12 @@ public class StageUIManager : MonoBehaviour
     public Text stageText;
     public GameObject nextButton;
     public GameObject backToTownButton;
+    public GameObject questClearText;
+
+    void Start()
+    {
+        questClearText.SetActive(false);
+    }
 
     public void UpdateUI(int currentStageNumber)
     {
@@ -18,5 +24,12 @@ public class StageUIManager : MonoBehaviour
     {
         nextButton.SetActive(!nextButton.activeSelf);
         backToTownButton.SetActive(!backToTownButton.activeSelf);
+    }
+
+    public void ShowQuestClearText()
+    {
+        questClearText.SetActive(true);
+        nextButton.SetActive(false);
+        backToTownButton.SetActive(true);
     }
 }
