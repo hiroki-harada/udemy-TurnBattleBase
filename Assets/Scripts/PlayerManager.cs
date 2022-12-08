@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public void OnGotDamage(int damage)
     {
         hitPoint -= damage;
+        if (hitPoint <= 0) hitPoint = 0;
         Debug.Log($"Player's HP was {hitPoint}");
     }
 }

@@ -17,7 +17,9 @@ public class EnemyManager : MonoBehaviour
     public void OnGotDamage(int damage)
     {
         hitPoint -= damage;
+        if (hitPoint <= 0) hitPoint = 0;
         Debug.Log($"Enemy's HP was {hitPoint}");
+            
     }
 
     public void AddEventListenerOnClick(Action action)
