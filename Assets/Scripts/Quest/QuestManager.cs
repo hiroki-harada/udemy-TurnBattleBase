@@ -6,6 +6,7 @@ public class QuestManager : MonoBehaviour
     public StageUIManager stageUI;
     public GameObject enemyPrefab;
     public BattleManager battleManager;
+    public SceneTransitionManager sceneTransitionManager;
 
     int[] encountEnemyTable = { -1, -1, -1, 0, -1, 0, -1,};
 
@@ -19,8 +20,15 @@ public class QuestManager : MonoBehaviour
     {
         stageUI.UpdateUI(++currentStageNumber);
 
-        if (currentStageNumber >= encountEnemyTable.Length) Debug.Log("This Quest Was Cleared !");
-        else if (encountEnemyTable[currentStageNumber] == 0) EncountEnemy();
+        if (currentStageNumber >= encountEnemyTable.Length) 
+        {
+            Debug.Log("This Quest Was Cleared !");
+            OnClearedQuest();
+        }
+        else if (encountEnemyTable[currentStageNumber] == 0)
+        {
+            EncountEnemy();
+        }
     }
 
     void EncountEnemy()
@@ -33,5 +41,11 @@ public class QuestManager : MonoBehaviour
     public void RestartExploring()
     {
         stageUI.SwitchButtonActivate();
+    }
+
+    void OnClearedQuest()
+    {
+        stageUI.ShowQuestClearText();
+        // sceneTransitionManager.LoadScene("Town");
     }
 }
