@@ -29,4 +29,9 @@ public class QuestManager : MonoBehaviour
         GameObject enemyObj = Instantiate(enemyPrefab);
         battleManager.Setup(enemyObj.GetComponent<EnemyManager>());
     }
+
+    public void RestartExploring()
+    {
+        stageUI.SwitchButtonActivate();
+    }
 }

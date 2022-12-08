@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0131705c235138f4ebb94b8e9b70fa9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questManager: {fileID: 955804636}
   player: {fileID: 654674313}
   playerUI: {fileID: 1878257562}
   enemyUI: {fileID: 816000454}
