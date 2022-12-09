@@ -142,8 +142,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4c38dafc85035458fd22630d53d519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSpeaker: {fileID: 2857279154016766160}
-  soundSource: {fileID: 8300000, guid: 7a617d92a47be9549815634b726198ec, type: 3}
+  BGMSpeaker: {fileID: 2857279154016766160}
+  BGMSource:
+  - {fileID: 8300000, guid: b2ceee28fe1bc2943909257fca613dfd, type: 3}
+  - {fileID: 8300000, guid: 6c3ee8fb19bb5c44ea7eda05aa7241c0, type: 3}
+  - {fileID: 8300000, guid: 685bbe0a41b397044ae27b89a954afa0, type: 3}
+  - {fileID: 8300000, guid: c9a99ca58d08f884cbf83f970e8c7504, type: 3}
+  SESpeaker: {fileID: 2857279154016766160}
+  SESource:
+  - {fileID: 8300000, guid: 7a617d92a47be9549815634b726198ec, type: 3}
+  - {fileID: 8300000, guid: 1ca12910988e6174f822614a467d0052, type: 3}
+  - {fileID: 8300000, guid: 4330e17ebf3cf314ba5e620a4e2cf1c3, type: 3}
 --- !u!82 &2857279154016766162
 AudioSource:
   m_ObjectHideFlags: 0

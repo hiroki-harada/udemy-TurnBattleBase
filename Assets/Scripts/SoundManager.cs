@@ -23,7 +23,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource BGMSpeaker;
     public AudioClip[] BGMSource;
     public AudioSource SESpeaker;
-    public AudioClip SESource;
+    public AudioClip[] SESource;
 
     // Start is called before the first frame update
     void Start()
@@ -54,8 +54,8 @@ public class SoundManager : MonoBehaviour
         BGMSpeaker.Play();
     }
 
-    public void PlaySE()
+    public void PlaySE(int index)
     {
-        SESpeaker.PlayOneShot(SESource);
+        SESpeaker.PlayOneShot(SESource[index]);
     }
 }

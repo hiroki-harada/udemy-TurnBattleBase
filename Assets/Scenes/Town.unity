@@ -388,16 +388,44 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2024441512}
+    - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1994497901}
+    - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClickToQuestButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TownManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Quest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745326199414571814, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5745326200785279586, guid: 09967d0eb558d7043a32f06638f58605, type: 3}
       propertyPath: m_Text
@@ -417,6 +445,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2857279154016766160, guid: 88208a39eee02cd4da56f8accdff61d1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c3ee8fb19bb5c44ea7eda05aa7241c0, type: 3}
     - target: {fileID: 2857279154016766161, guid: 88208a39eee02cd4da56f8accdff61d1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -551,6 +583,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1994497899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994497900}
+  - component: {fileID: 1994497901}
+  m_Layer: 0
+  m_Name: TownManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1994497900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994497899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 599.4088, y: 944.25464, z: -6.6733184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1994497901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994497899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3da45e489f894d49a1f928b7809511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2001579241
 GameObject:
   m_ObjectHideFlags: 0

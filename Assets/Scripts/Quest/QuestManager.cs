@@ -18,6 +18,7 @@ public class QuestManager : MonoBehaviour
 
     public void OnNextButton()
     {
+        SoundManager.instance.PlaySE(0);
         stageUI.UpdateUI(++currentStageNumber);
 
         if (currentStageNumber >= encountEnemyTable.Length) 
@@ -29,6 +30,11 @@ public class QuestManager : MonoBehaviour
         {
             EncountEnemy();
         }
+    }
+
+    public void OnBakToTownButton()
+    {
+        SoundManager.instance.PlaySE(0);
     }
 
     void EncountEnemy()
@@ -45,7 +51,7 @@ public class QuestManager : MonoBehaviour
 
     void OnClearedQuest()
     {
+        SoundManager.instance.PlaySE(2);
         stageUI.ShowQuestClearText();
-        // sceneTransitionManager.LoadScene("Town");
     }
 }
