@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class EnemyManager : MonoBehaviour
 
     public void OnGotDamage(int damage)
     {
+        transform.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
         hitPoint -= damage;
         if (hitPoint <= 0) hitPoint = 0;
         Debug.Log($"Enemy's HP was {hitPoint}");

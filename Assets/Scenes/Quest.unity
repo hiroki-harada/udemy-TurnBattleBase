@@ -235,6 +235,7 @@ MonoBehaviour:
   questManager: {fileID: 955804636}
   player: {fileID: 654674313}
   playerUI: {fileID: 1878257562}
+  playerDamagePanel: {fileID: 519420032}
   enemyUI: {fileID: 816000454}
 --- !u!4 &154435113
 Transform:
