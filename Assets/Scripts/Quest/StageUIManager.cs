@@ -22,10 +22,10 @@ public class StageUIManager : MonoBehaviour
         stageText.text = $"ステージ : {currentStageNumber}";
     }
 
-    public void SwitchButtonActivate()
+    public void SwitchButtonActivate(bool isActive)
     {
-        nextButton.SetActive(!nextButton.activeSelf);
-        backToTownButton.SetActive(!backToTownButton.activeSelf);
+        nextButton.SetActive(isActive);
+        backToTownButton.SetActive(isActive);
     }
 
     public void ShowQuestClearText()
