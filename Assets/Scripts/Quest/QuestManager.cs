@@ -51,6 +51,7 @@ public class QuestManager : MonoBehaviour
 
     void OnClearedQuest()
     {
+        SoundManager.instance.StopBGM();
         SoundManager.instance.PlaySE(2);
         stageUI.ShowQuestClearText();
     }

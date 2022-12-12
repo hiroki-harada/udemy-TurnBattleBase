@@ -54,6 +54,11 @@ public class SoundManager : MonoBehaviour
         BGMSpeaker.Play();
     }
 
+    public void StopBGM()
+    {
+        BGMSpeaker.Stop();
+    }
+
     public void PlaySE(int index)
     {
         SESpeaker.PlayOneShot(SESource[index]);

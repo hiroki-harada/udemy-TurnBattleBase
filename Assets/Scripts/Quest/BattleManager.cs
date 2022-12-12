@@ -30,12 +30,13 @@ public class BattleManager : MonoBehaviour
 
     void AttackToEnemy()
     {
+        StopAllCoroutines();
         SoundManager.instance.PlaySE(1);
         player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
         if (enemy.hitPoint > 0)
         {
-            EnemyTurn();
+            StartCoroutine(EnemyTurn());
             return;
         }
 
@@ -44,8 +45,10 @@ public class BattleManager : MonoBehaviour
         EndBattle();
     }
 
-    void EnemyTurn()
+    IEnumerator EnemyTurn()
     {
+        yield return new WaitForSeconds(1f);
+        SoundManager.instance.PlaySE(1);
         enemy.Attack(player);
         playerUI.UpdateUI(player);
     }
