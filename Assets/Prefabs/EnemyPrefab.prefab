@@ -157,3 +157,4 @@ MonoBehaviour:
   name: Fire Goat
   hitPoint: 50
   attackPower: 10
+  gotDamageEffect: {fileID: 5442471407543824756, guid: 66f655e59c7a9614f9c9e038cfb81ed9, type: 3}
