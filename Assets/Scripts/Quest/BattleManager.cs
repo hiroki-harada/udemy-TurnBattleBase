@@ -33,9 +33,16 @@ public class BattleManager : MonoBehaviour
     void AttackToEnemy()
     {
         StopAllCoroutines();
+
         SoundManager.instance.PlaySE(1);
-        player.Attack(enemy);
+        int damage = player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
+
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            $@"Player attacked a Monster !\n
+            Monster got {damage} damages !"
+        });
+
         if (enemy.hitPoint > 0)
         {
             StartCoroutine(EnemyTurn());
@@ -47,10 +54,16 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         SoundManager.instance.PlaySE(1);
 
-        enemy.Attack(player);
+        int damage = enemy.Attack(player);
+
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            $@"Monster attacked the Player !\n
+            Player got {damage} damages !"
+        });
+
         playerDamagePanel.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
         playerUI.UpdateUI(player);
     }

@@ -18,10 +18,17 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         stageUI.UpdateUI(++currentStageNumber);
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            "You arrived at the forest."
+        });
     }
 
     IEnumerator Searching()
     {
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            "Searching . . ."
+        });
+
         questBG.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 2f)
             .OnComplete(() => questBG.transform.localScale =new Vector3(1f, 1f, 1f));
         (questBG.GetComponent<SpriteRenderer>()).DOFade(/* opacity = */0, /* duration(sec) = */2f)
@@ -58,6 +65,10 @@ public class QuestManager : MonoBehaviour
 
     void EncountEnemy()
     {
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            "A Monster appeared !"
+        });
+
         GameObject enemyObj = Instantiate(enemyPrefab);
         battleManager.Setup(enemyObj.GetComponent<EnemyManager>());
     }
@@ -71,6 +82,10 @@ public class QuestManager : MonoBehaviour
     {
         SoundManager.instance.StopBGM();
         SoundManager.instance.PlaySE(2);
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            @"You found a Chest !!\n
+            You should return the Town !"
+        });
         stageUI.ShowQuestClearText();
     }
 }

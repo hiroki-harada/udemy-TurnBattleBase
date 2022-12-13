@@ -11,9 +11,10 @@ public class EnemyManager : MonoBehaviour
     public int attackPower;
     public GameObject gotDamageEffect;
 
-    public void Attack(PlayerManager player)
+    public int Attack(PlayerManager player)
     {
         player.OnGotDamage(attackPower);
+        return attackPower;
     }
 
     public void OnGotDamage(int damage)

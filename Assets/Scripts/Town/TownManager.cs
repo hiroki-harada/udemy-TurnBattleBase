@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class TownManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    void Start()
+    {
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            "You arrived at the Town."
+        });
+    }
     public void OnClickToQuestButton()
     {
         SoundManager.instance.PlaySE(0);
