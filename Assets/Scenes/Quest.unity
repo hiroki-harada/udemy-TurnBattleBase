@@ -725,8 +725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5846034323e0d9f42b8d2e045f2a9d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 50
-  attackPower: 15
+  hitPoint: 10
+  attackPower: 20
 --- !u!4 &654674314
 Transform:
   m_ObjectHideFlags: 0
@@ -951,6 +951,8 @@ MonoBehaviour:
   battleManager: {fileID: 154435112}
   sceneTransitionManager: {fileID: 870092347}
   questBG: {fileID: 1491836761}
+  player: {fileID: 654674313}
+  playerUI: {fileID: 1878257562}
 --- !u!1001 &962989773
 PrefabInstance:
   m_ObjectHideFlags: 0

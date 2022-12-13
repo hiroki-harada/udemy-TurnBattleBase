@@ -35,4 +35,10 @@ public class StageUIManager : MonoBehaviour
         nextButton.SetActive(false);
         backToTownButton.SetActive(true);
     }
+
+    public void ShowQuestFailedText()
+    {
+        nextButton.SetActive(false);
+        backToTownButton.SetActive(true); 
+    }
 }

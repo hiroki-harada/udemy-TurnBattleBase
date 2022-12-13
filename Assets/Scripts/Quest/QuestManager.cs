@@ -12,6 +12,9 @@ public class QuestManager : MonoBehaviour
     public SceneTransitionManager sceneTransitionManager;
     public GameObject questBG;
 
+    public PlayerManager player;
+    public PlayerUIManager playerUI;
+
     int[] encountEnemyTable = { -1, -1, -1, 0, -1, 0, -1,};
 
     int currentStageNumber = 0;
@@ -21,6 +24,8 @@ public class QuestManager : MonoBehaviour
         DialogTextManager.instance.DisplayScenarios(new string[] {
             "You arrived at the forest."
         });
+
+        playerUI.SetupUI(player);
     }
 
     IEnumerator Searching()
@@ -87,5 +92,10 @@ public class QuestManager : MonoBehaviour
             You should return the Town !"
         });
         stageUI.ShowQuestClearText();
+    }
+
+    public void OnFailedQuest()
+    {
+        stageUI.ShowQuestFailedText();
     }
 }

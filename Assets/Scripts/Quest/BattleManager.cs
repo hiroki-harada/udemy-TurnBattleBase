@@ -60,21 +60,42 @@ public class BattleManager : MonoBehaviour
         int damage = enemy.Attack(player);
 
         DialogTextManager.instance.DisplayScenarios(new string[] {
-            $@"Monster attacked the Player !\n
+            $@"Monster attacked the Player !
             Player got {damage} damages !"
         });
 
         playerDamagePanel.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
         playerUI.UpdateUI(player);
+
+        if (player.hitPoint <= 0)
+        {
+            OnLostBattle();
+        }
+    }
+
+    IEnumerator OnLostBattle()
+    {
+       yield return new WaitForSeconds(2f);
+
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            "You have no strength to fight left ..."
+        });
+
+        questManager.OnFailedQuest();
     }
 
     IEnumerator EndBattle()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         enemyUI.gameObject.SetActive(false);
         Destroy(enemy.gameObject);
         SoundManager.instance.PlayBGM("Quest");
+
+        DialogTextManager.instance.DisplayScenarios(new string[] {
+            "The Monster ran away ..."
+        });
+
         questManager.RestartExploring();
     }
 }
