@@ -88,8 +88,7 @@ public class QuestManager : MonoBehaviour
         SoundManager.instance.StopBGM();
         SoundManager.instance.PlaySE(2);
         DialogTextManager.instance.DisplayScenarios(new string[] {
-            @"You found a Chest !!\n
-            You should return the Town !"
+            "You found a Chest !!\nYou should return the Town !"
         });
         stageUI.ShowQuestClearText();
     }

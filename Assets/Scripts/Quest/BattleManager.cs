@@ -13,9 +13,12 @@ public class BattleManager : MonoBehaviour
     EnemyManager enemy;
     public EnemyUIManager enemyUI;
 
+    bool isEnableAttackToEnemy;
+
     void Start()
     {
         enemyUI.gameObject.SetActive(false);
+        isEnableAttackToEnemy = true;
     }
 
     public void Setup(EnemyManager enemyManager)
@@ -32,15 +35,16 @@ public class BattleManager : MonoBehaviour
 
     void AttackToEnemy()
     {
+        if (!isEnableAttackToEnemy) return;
         StopAllCoroutines();
+        isEnableAttackToEnemy = false;
 
         SoundManager.instance.PlaySE(1);
         int damage = player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
 
         DialogTextManager.instance.DisplayScenarios(new string[] {
-            $@"Player attacked a Monster !\n
-            Monster got {damage} damages !"
+            $"Player attacked a Monster !\nMonster got {damage} damages !"
         });
 
         if (enemy.hitPoint > 0)
@@ -60,27 +64,27 @@ public class BattleManager : MonoBehaviour
         int damage = enemy.Attack(player);
 
         DialogTextManager.instance.DisplayScenarios(new string[] {
-            $@"Monster attacked the Player !
-            Player got {damage} damages !"
+            $"Monster attacked the Player !\nPlayer got {damage} damages !"
         });
 
         playerDamagePanel.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
         playerUI.UpdateUI(player);
+        isEnableAttackToEnemy = true;
 
-        if (player.hitPoint <= 0)
-        {
-            OnLostBattle();
+        if (player.hitPoint <= 0) {
+            StartCoroutine(OnLostBattle());
         }
     }
 
     IEnumerator OnLostBattle()
     {
-       yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f);
 
         DialogTextManager.instance.DisplayScenarios(new string[] {
             "You have no strength to fight left ..."
         });
 
+        yield return new WaitForSeconds(3f);
         questManager.OnFailedQuest();
     }
 
@@ -90,6 +94,8 @@ public class BattleManager : MonoBehaviour
 
         enemyUI.gameObject.SetActive(false);
         Destroy(enemy.gameObject);
+
+        isEnableAttackToEnemy = true;
         SoundManager.instance.PlayBGM("Quest");
 
         DialogTextManager.instance.DisplayScenarios(new string[] {

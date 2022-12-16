@@ -22,7 +22,7 @@ public class DialogTextManager : MonoBehaviour
 
     private string currentText = string.Empty;
     private float timeUntilDisplay = 0;
-    private float timeElapsed = 1;
+    private float secLastDisplayedAt = 1;
     private int currentLine = 0;
     private int lastUpdateCharacter = -1;
 
@@ -53,7 +53,7 @@ public class DialogTextManager : MonoBehaviour
 
     public bool IsCompleteDisplayText
     {
-        get { return Time.time > timeElapsed + timeUntilDisplay; }
+        get { return Time.time > secLastDisplayedAt + timeUntilDisplay; }
     }
 
     void Update()
@@ -73,10 +73,12 @@ public class DialogTextManager : MonoBehaviour
             }
         }
 
-        int displayCharacterCount = (int)(Mathf.Clamp01((Time.time - timeElapsed) / timeUntilDisplay) * currentText.Length);
+        int displayCharacterCount = (int)(Mathf.Clamp01((Time.time - secLastDisplayedAt) / timeUntilDisplay) * currentText.Length);
         if (displayCharacterCount != lastUpdateCharacter)
         {
-            uiText.text = currentText.Substring(0, displayCharacterCount);
+            // FIX ME : displayCharacterCount が桁あふれして -2,147,483,648 を返す場合あり
+            // currentText.Length > displayCharacterCount を前提として、暫定的に回避
+            uiText.text = currentText.Substring(0, Math.Max(currentText.Length, displayCharacterCount));
             lastUpdateCharacter = displayCharacterCount;
         }
         CheckCompletedText(); // 1/16 追加:
@@ -102,13 +104,10 @@ public class DialogTextManager : MonoBehaviour
     public void SetNextLine()
     {
         isEnd = false;
-        if (scenarios.Length - 1 < currentLine)
-        {
-            return;
-        }
+        if (scenarios.Length - 1 < currentLine) return;
         currentText = scenarios[currentLine];
         timeUntilDisplay = currentText.Length * intervalForCharacterDisplay;
-        timeElapsed = Time.time;
+        secLastDisplayedAt = Time.time;
         currentLine++;
         lastUpdateCharacter = -1;
     }
