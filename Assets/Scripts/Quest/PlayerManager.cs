@@ -7,9 +7,10 @@ public class PlayerManager : MonoBehaviour
     public int hitPoint;
     public int attackPower;
 
-    public void Attack(EnemyManager enemy)
+    public int Attack(EnemyManager enemy)
     {
         enemy.OnGotDamage(attackPower);
+        return attackPower;
     }
 
     public void OnGotDamage(int damage)

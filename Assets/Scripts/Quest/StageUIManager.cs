@@ -9,10 +9,12 @@ public class StageUIManager : MonoBehaviour
     public GameObject nextButton;
     public GameObject backToTownButton;
     public GameObject questClearText;
+    public GameObject questClearImage;
 
     void Start()
     {
         questClearText.SetActive(false);
+        questClearImage.SetActive(false);
     }
 
     public void UpdateUI(int currentStageNumber)
@@ -20,16 +22,23 @@ public class StageUIManager : MonoBehaviour
         stageText.text = $"ステージ : {currentStageNumber}";
     }
 
-    public void SwitchButtonActivate()
+    public void SwitchButtonActivate(bool isActive)
     {
-        nextButton.SetActive(!nextButton.activeSelf);
-        backToTownButton.SetActive(!backToTownButton.activeSelf);
+        nextButton.SetActive(isActive);
+        backToTownButton.SetActive(isActive);
     }
 
     public void ShowQuestClearText()
     {
         questClearText.SetActive(true);
+        questClearImage.SetActive(true);
         nextButton.SetActive(false);
         backToTownButton.SetActive(true);
+    }
+
+    public void ShowQuestFailedText()
+    {
+        nextButton.SetActive(false);
+        backToTownButton.SetActive(true); 
     }
 }
